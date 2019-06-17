@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST" id="target"> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="team1" value="{{ data.bids_team1 }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="team2" value="{{ data.bids_team2 }}">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="rate" value="{{ data.rate }}">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="baaw1" value="{{ data.baaw_team1 }}">
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" name="baaw2" value="{{ data.baaw_team2 }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="uname" value="{{ session.uname }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="coine" value="{{  }}">
+                </div>
+        <button type="submit" class="btn btn-block btn-primary">Update</button>
+    </form>
+{% endblock %}

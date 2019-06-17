@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card-deck mb-3 text-center">
+        <table class="table table-striped" id="flights">
+                <thead>
+                        <tr>
+                            <th scope="col">Team A</th>
+                            <th scope="col">Team B</th>
+                            <th scope="col">Rate</th>
+                            <th scope="col">Baaw Team A</th>
+                            <th scope="col">Baaw Team B</th>
+                            <th scope="col">Bid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for flight in flights %}
+                        <tr id={{ flight.id }}>
+                            <th scope="row">{{ flight.bids_team1 }}</th>
+                            <td> {{flight.bids_team2 }} </td>
+                            <td> {{ flight.rate }} </td>
+                            <td> {{ flight.baaw_team1 }} </td>
+                            <td> {{ flight.baaw_team2 }} </td>
+                            <td> <a href="place_bid/{{ flight.id }}"><button type="button" class="btn btn-info">Bid</button></a> </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+        </table>
+    </div>
+    <hr>    
+<div class="card-deck mb-3 text-center">
+        <h2>Your Bids</h2>
+        <table class="table table-striped" id="flights">
+            <thead>
+                    <tr>
+                        <th scope="col">Team A</th>
+                        <th scope="col">Team B</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Baaw Team A</th>
+                        <th scope="col">Baaw Team B</th>
+                        <th scope="col">Bid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for flight in flights %}
+                    <tr id={{ flight.id }}>
+                        <th scope="row">{{ flight.bids_team1 }}</th>
+                        <td> {{flight.bids_team2 }} </td>
+                        <td> {{ flight.rate }} </td>
+                        <td> {{ flight.baaw_team1 }} </td>
+                        <td> {{ flight.baaw_team2 }} </td>
+                        <td> <a href="bid/edit/{{ flight.id }}"><button type="button" class="btn btn-info">Bid</button></a> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+    </table>
+</div>    
+{% endblock %}

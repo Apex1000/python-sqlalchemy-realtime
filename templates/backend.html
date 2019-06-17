@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+    <form method="POST" id="target"> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Phone">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="coine" placeholder="Coine">
+        </div>
+        
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+    </form>
+    
+    <br />
+
+    <div class="table-responsive">
+        <table class="table" id="flights">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Coine</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for flight in flights %}
+                <tr id={{ flight.id }}>
+                    <th scope="row">{{ flight.name }}</th>
+                    <td> {{flight.username }} </td>
+                    <td> {{ flight.phone }} </td>
+                    <td> {{ flight.coine }} </td>
+                    <td> <a href="/edit/{{ flight.id }}">Edit</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div><div class="col-sm-2"></div>
+    </div>
+{% endblock %}

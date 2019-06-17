@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+    <form method="POST" id="target"> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="team1" placeholder="Team1">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="team2" placeholder="Team2">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="rate" placeholder="Rate">
+        </div>
+        <div class="form-group">
+                <input type="text" class="form-control" name="baaw1" placeholder="Baaw Team 1">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" class="form-control" name="baaw2" placeholder="Baaw Team 2">
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+    </form>
+    
+    <br />
+
+    <div class="table-responsive">
+        <table class="table" id="flights">
+            <thead>
+                <tr>
+                    <th scope="col">Team1</th>
+                    <th scope="col">Team2</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Baaw Team1</th>
+                    <th scope="col">Baaw Team2</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for flight in flights %}
+                <tr id={{ flight.id }}>
+                    <th scope="row">{{ flight.bids_team1 }}</th>
+                    <td> {{flight.bids_team2 }} </td>
+                    <td> {{ flight.rate }} </td>
+                    <td> {{ flight.baaw_team1 }} </td>
+                    <td> {{ flight.baaw_team2 }} </td>
+                    <td> <a href="bid/edit/{{ flight.id }}"><button type="button" class="btn btn-danger">Edit</button></a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div><div class="col-sm-2"></div>
+    </div>
+{% endblock %}
